@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WikstromIT</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WikstromIT.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="container-fluid"> 
+        <div class="row" style="background-color: black">
+            <div class="col-7">
+                <div class="row">
+                    <ul class="col-12 nav bg-light flex-row p-3">
+                        <li class="nav-item nav-item-custom">
+                            <a asp-controller="Home" asp-action="Index">
+                                <img src="~/images/Home.svg" width="32px" alt="Home">
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" onclick="loadPage('/Email/Index')">
+                                <img src="~/images/Email.svg" width="32px" alt="Email">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="row">
+                    <nav class="col-6 bg-light text-dark vh-100 p-3">
+                        <div class="text-center">
+                            <div class="circle-image">
+                                <img src="~/images/ProfilePicture.jpg" alt="Profile Picture">
+                            </div>
+                            <div class="person-info text-dark">
+                                <span class="large-text">Andreas Vikstrom</span>
+                                <span class="small-text">.NET developer</span>
+                            </div>
+                            <ul class="nav flex-column">
+                                <li class="nav-item"><a class="main-link" data-menu="AboutMeMenu">About me</a></li>
+                                <li class="nav-item"><a class="main-link" data-menu="PortfolioMenu">Portfolio</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <nav class="col-6 bg-light text-dark vh-100 p-3" id="dynamic-menu">
+                        <!-- Menu will be loaded here dynamically -->
+                    </nav>
+                </div>
+                <footer class="border-top footer-custom text-muted mt-auto">
+                    <div class="container">
+                        &copy; 2025 - WikstromIT
+                    </div>
+                </footer>
+            </div>
+
+            <!-- Main Content -->
+            <main class="col-5 bg-white text-dark p-4">
+                @RenderBody()
+            </main>
+
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

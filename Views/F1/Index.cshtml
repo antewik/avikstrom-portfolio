@@ -1,0 +1,28 @@
+﻿<div class="text-center">
+    <h1 class="display-4">F1 Info</h1>
+</div>
+
+@*  Races *@
+<ul id="raceList"></ul>
+
+@* Race details*@
+<div id="raceInfo" class="race-details"></div>
+
+<button type="button" id="myButton">Click Me</button>
+
+@* Race result table (initially hidden) *@
+<div id="positionsContainer" style="display: none;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Driver</th>
+                <th>Session</th>
+            </tr>
+        </thead>
+        <tbody id="positionsTableBody"></tbody>
+    </table>
+</div>
+
+
+@* <button onclick="fetchDriverData()">Get Positions</button> *@

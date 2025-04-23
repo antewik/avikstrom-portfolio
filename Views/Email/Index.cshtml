@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Send Email";
+}
+
+<h2>Send an Email</h2>
+
+<form action="/Email/SendEmail" method="post" onsubmit="showSuccessMessage()">
+    <div class="p-5">
+        <div class="py-2">
+            <label for="senderEmail">Your Email:</label>
+            <input type="email" id="senderEmail" name="senderEmail" class="form-control" required placeholder="Enter your email">
+        </div>
+        <div class="py-2">
+            <label for="recipientEmail">Recipient Email:</label>
+            <input type="email" id="recipientEmail" name="recipientEmail" class="form-control readonly" readonly value="avikstrom@wikstromIT.com">
+        </div>
+        <div class="py-2">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" class="form-control" required placeholder="Enter subject">
+        </div>
+        <div class="py-2">
+            <label for="body">Message:</label>
+            <textarea id="body" name="body" rows="5" class="form-control" required placeholder="Write your message here..."></textarea>
+        </div>
+        <div class="py-2 text-end">
+            <button type="submit" class="btn btn-lg btn-primary">Send Email</button>
+        </div>
+    </div>
+    <div id="emailSuccessAlert" class="alert alert-success d-none">
+        Email sent successfully!
+    </div>
+</form>
+
+<script>
+    function showSuccessMessage() {
+        document.getElementById("emailSuccessAlert").classList.remove("d-none");
+    }
+</script>

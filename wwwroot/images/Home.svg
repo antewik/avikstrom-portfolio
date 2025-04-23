@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke-width="0" stroke="#000" ry="299.58286" rx="300" id="svg_1" cy="299.89709" cx="300" fill="#f17e7e"/>
+  <ellipse id="svg_2" cy="267.40001" cx="62.59996" stroke="#000" fill="#fff"/>
+  <line stroke-width="50" id="svg_3" y2="300" x2="50" y1="70" x1="300" stroke="#ffffff" fill="none"/>
+  <line transform="rotate(90 415 185)" stroke-width="50" id="svg_4" y2="300" x2="300" y1="70" x1="530" stroke="#ffffff" fill="none"/>
+  <line stroke="#ffffff" id="svg_5" y2="481.40002" x2="123.59996" y1="233.40002" x1="124.59996" stroke-width="40" fill="none"/>
+  <line stroke="#ffffff" id="svg_6" y2="473.4" x2="459.59996" y1="232.40002" x1="460.59996" stroke-width="40" fill="none"/>
+  <line stroke="#ffffff" id="svg_7" y2="472.40001" x2="479.59991" y1="471.40001" x1="103.59997" stroke-width="40" fill="none"/>
+  <rect id="svg_8" height="135" width="96" y="287.40001" x="246.59996" stroke-width="30" stroke="#ffffff" fill="none"/>
+  <line stroke="#ffffff" id="svg_12" y2="163.40002" x2="389.59995" y1="76.40001" x1="388.59995" stroke-width="30" fill="none"/>
+  <line stroke="#ffffff" id="svg_13" y2="211.40001" x2="442.59995" y1="76.40001" x1="441.59995" stroke-width="30" fill="none"/>
+  <line stroke="#ffffff" id="svg_14" y2="90.40001" x2="451.59996" y1="91.40001" x1="379.59996" stroke-width="30" fill="none"/>
+  <rect transform="rotate(45 306.6 72.4)" stroke="#ffffff" id="svg_17" height="4" width="24" y="70.40002" x="294.59995" stroke-width="40" fill="none"/>
+ </g>
+</svg>

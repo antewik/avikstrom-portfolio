@@ -1,0 +1,14 @@
+<svg width="64" height="64" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke-width="0" stroke="#000" ry="299.58286" rx="300" id="svg_1" cy="299.89709" cx="300" fill="#f17e7e"/>
+  <ellipse id="svg_2" cy="267.40001" cx="62.59996" stroke="#000" fill="#fff"/>
+  <rect id="svg_18" height="273" width="430.99999" y="165.40001" x="86.59996" stroke-width="5" stroke="#4c4c4c" fill="#ffffff"/>
+  <line id="svg_19" y2="163.40001" x2="85.59996" y1="326.40001" x1="300.59995" stroke-width="5" stroke="#4c4c4c" fill="none"/>
+  <line stroke="#4c4c4c" id="svg_20" y2="163.40001" x2="516.59996" y1="326.40001" x1="300.59994" stroke-width="5" fill="none"/>
+  <polyline stroke-linecap="round" id="svg_21" points="299.5999545156958,325.4000117629769 299.5999545156958,325.4000117629769 " stroke-width="5" stroke="#4c4c4c" fill="none"/>
+  <line id="svg_22" y2="434.40001" x2="89.59996" y1="272.40001" x1="226.59996" stroke-width="5" stroke="#4c4c4c" fill="none"/>
+  <line stroke="#4c4c4c" id="svg_23" y2="434.40001" x2="511.59996" y1="272.40001" x1="372.59993" stroke-width="5" fill="none"/>
+ </g>
+</svg>
