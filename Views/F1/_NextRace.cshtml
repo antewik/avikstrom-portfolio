@@ -1,0 +1,104 @@
+﻿@using AvikstromPortfolio
+@using AvikstromPortfolio.Models
+@using AvikstromPortfolio.Models.F1
+@model RaceInfo
+
+@if (Model != null && Model.Sessions != null && Model.Sessions.Any())
+{
+    var raceSession = Model.Sessions
+    .FirstOrDefault(s => s.Label.Equals("Race", StringComparison.OrdinalIgnoreCase))
+    ?? Model.Sessions.LastOrDefault();
+    var raceDateTimeTrack = raceSession?.TrackDateTime;
+    var raceDateTimeUtc = raceSession?.UtcDateTime;
+    var raceDateTrack = raceDateTimeTrack?.ToString("yyyy-MM-dd");
+    var raceTimeTrack = raceDateTimeTrack?.ToString("HH:mm:ss");
+
+    <div class="card border-0">
+        <div class="card-body">
+            <h2 class="card-title text-center f1-uppercase">@Model.NextRaceName</h2>
+            <p class="card-text text-center">
+                <span class="f1-text-large-bold">Round:</span> <span class="f1-text-large">@Model.Round</span>
+            </p>
+
+            <div id="countdown" class="f1-countdown"
+                 data-utc="@($"{raceDateTimeUtc:yyyy-MM-ddTHH\\:mm\\:ssZ}")"
+                 data-track="@($"{raceDateTrack}T{raceTimeTrack}")">
+                <div id="countdownPanel">
+                    <h3 class="f1-uppercase">Lights Out In...</h3>
+                    <div class="row f1-countdownDays">
+                        <div class="col-12">
+                            <span class="f1-count-num large" id="days"></span><span class="f1-count-label">Days</span>
+                        </div>
+                    </div>
+                    <div class="row f1-countdownTime">
+                        <div class="col-12">
+                            <span class="f1-count-num" id="hours"></span><span class="f1-count-label">Hour</span>
+                            <span class="f1-count-num" id="minutes"></span><span class="f1-count-label">Min.</span>
+                            <span class="f1-count-num" id="seconds"></span><span class="f1-count-label">Sec.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="raceLivePanel">
+                <div class="f1-live-indicator">
+                    <span class="f1-live-dot"></span>
+                    <span class="f1-live-label f1-uppercase">Live</span>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <table class="table f1-fixed-table w-100 text-start text-nowrap">
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div id="toggleWrapper" class="f1-toggle-wrapper">
+                                    <input type="checkbox" id="toggleTimeMode" hidden />
+                                    <div class="toggle-side left">Track Time</div>
+                                    <div class="toggle-side right">My Time</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="f1-text">Location:</td>
+                            <td>@Model.Location, @Model.Country</td>
+                            <td></td>
+                        </tr>
+                        @foreach (var session in Model.Sessions.Select((s, i) => new { Session = s, Index = i }))
+                        {
+                            var utcDateTime = session.Session.UtcDateTime;
+                            var trackDateTime = session.Session.TrackDateTime;
+                            var utcIso = utcDateTime?.ToString("yyyy-MM-ddTHH:mm:ssZ");
+                            var trackIso = trackDateTime?.ToString("yyyy-MM-ddTHH:mm:ss");
+
+                            var isLast = session.Index == Model.Sessions.Count - 1;
+                            var label = isLast ? "Race"
+
+                            : (string.IsNullOrEmpty(session.Session.Label) || session.Session.Label == "None"
+                            ? "Session " + (session.Index + 1)
+                            : session.Session.Label);
+
+                            <tr>
+                                <td class="f1-text">@label:</td>
+                                <td><span class="f1-session-day" data-utc="@utcIso" data-track="@trackIso"></span></td>
+                                <td><span class="f1-session-time" data-utc="@utcIso" data-track="@trackIso"></span></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+else if (!string.IsNullOrEmpty(Model?.Message))
+{
+    <div class="alert alert-info text-center" role="alert">
+        @Model.Message
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center" role="alert">
+        Race info is currently unavailable.
+    </div>
+}

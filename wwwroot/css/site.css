@@ -1,0 +1,341 @@
+﻿/* ==============================
+   Root Variables
+   ============================== */
+:root {
+    --color-primary: #FF8000;
+    --color-primary-dark: #e67300;
+    --color-dark: #484B50;
+    --color-white: #FFFFFF;
+    --color-border-light: #CDCDCD;
+    --font-heading: Roboto, sans-serif;
+}
+
+/* ==============================
+   Bootstrap Overrides
+   ============================== */
+.bg-primary {
+    background-color: var(--color-primary) !important;
+}
+
+.bg-dark {
+    background-color: var(--color-dark) !important;
+}
+
+.bg-light {
+    background-color: var(--color-white) !important;
+    color: var(--color-dark);
+}
+
+.bg-image-light {
+    background-color: var(--color-white);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0, 0, 0, 0.05) 10px, rgba(0, 0, 0, 0.05) 11px);
+}
+
+.bg-image-dark {
+    background-color: var(--color-dark);
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 11px), repeating-linear-gradient(135deg, transparent, transparent 10px, rgba(255, 255, 255, 0.05) 10px, rgba(255, 255, 255, 0.05) 11px);
+}
+
+.text-primary {
+    color: var(--color-primary) !important;
+}
+
+/* ==============================
+   Typography
+   ============================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h2, h3 {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* ==============================
+   Base Layout
+   ============================== */
+html {
+    font-size: 14px;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    padding: 1rem;
+}
+
+/* Container holds everything above the footer */
+.container-fluid {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    flex-grow: 1;
+}
+
+iframe {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: white;
+}
+
+#main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+/* ==============================
+   Component: Circle Image
+   ============================== */
+.component-circle-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--color-primary);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+}
+
+    .component-circle-image img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+/* ==============================
+   Component: Person Info Card
+   ============================== */
+.component-person-info {
+    display: inline-block;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 300px;
+    border: 2px solid var(--color-primary);
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-white);
+    color: var(--color-white);
+}
+
+/* ==============================
+   Footer
+   ============================== */
+footer {
+    position: sticky;
+    bottom: 0px;
+    width: 100%;
+    background-color: var(--color-border-light);
+    color: var(--color-white);
+}
+
+.footer-custom {
+    margin: 0px;
+    left: 0px;
+    bottom: 0px;
+    white-space: nowrap;
+    line-height: 60px;
+    width: 100%;
+}
+
+/* ==============================
+   Alert Container
+   ============================== */
+#alertContainer {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    padding-top: 1rem;
+}
+
+/* ==============================
+   Content Wrapper
+   ============================== */
+#contentWrapper {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 56px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* ==============================
+   Navigation
+   ============================== */
+#mainMenu {
+    flex-wrap: wrap;
+}
+
+.navbar {
+    font-size: 18px;
+    font-weight: normal;
+    font-family: var(--font-heading);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 56px;
+    align-items: flex-start !important;
+    z-index: 1050;
+}
+
+.navbar-nav .nav-link {
+    color: var(--color-white);
+    font-weight: bold;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: rgba(255, 255, 255, 0.75);
+    }
+
+    .navbar-nav .nav-link.active {
+        color: var(--color-primary);
+        width: fit-content;
+    }
+
+.nav-link {
+    display: block;
+    width: fit-content;
+}
+
+/* ==============================
+   Submenu Links
+   ============================== */
+.sub-link {
+    color: white !important;
+    background-color: transparent;
+    border-bottom: thin solid transparent;
+    margin-left: 0px;
+    width: 200px;
+    font-size: 14px;
+    padding: 8px 12px;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+    .sub-link:hover {
+        color: var(--color-primary) !important;
+        border-bottom-color: var(--color-primary);
+    }
+
+    .sub-link.active {
+        font-weight: bold;
+    }
+
+.submenu-item .nav-link {
+    font-size: 14px;
+    padding-left: 1rem;
+}
+
+.submenu-item {
+    flex-basis: 100%;
+    width: 100%;
+}
+
+/* ==============================
+   Component: Navbar Toggler
+   ============================== */
+.component-navbar-toggler {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1100;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border: none;
+    background: transparent;
+}
+
+    .component-navbar-toggler:focus,
+    .component-navbar-toggler:active {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .component-navbar-toggler .component-toggler-icon {
+        position: relative;
+        width: 16px;
+        height: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+        .component-navbar-toggler .component-toggler-icon span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--color-white);
+            border-radius: 1px;
+        }
+
+    .component-navbar-toggler[aria-expanded="true"] .component-toggler-icon span:nth-child(1) {
+        transform: rotate(45deg);
+        position: absolute;
+        top: 6px;
+        transform-origin: center;
+    }
+
+    .component-navbar-toggler[aria-expanded="true"] .component-toggler-icon span:nth-child(2) {
+        transform: rotate(-45deg);
+        position: absolute;
+        top: 6px;
+        transform-origin: center;
+    }
+
+    .component-navbar-toggler[aria-expanded="true"] .component-toggler-icon span:nth-child(3) {
+        display: none;
+    }
+
+    .component-navbar-toggler .toggler-hover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 0.6rem;
+        transition: background-color 0.2s ease;
+    }
+
+    .component-navbar-toggler:hover .toggler-hover {
+        background-color: #5A5D63;
+    }
+
+/* ==============================
+   Utility Classes
+   ============================== */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
