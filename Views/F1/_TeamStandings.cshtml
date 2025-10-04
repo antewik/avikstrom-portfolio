@@ -1,0 +1,47 @@
+﻿@using AvikstromPortfolio
+@using AvikstromPortfolio.Models
+@using AvikstromPortfolio.Models.F1
+@using AvikstromPortfolio.Services
+@using AvikstromPortfolio.Services.F1
+@model List<TeamStandings>
+
+@if (Model != null && Model.Any())
+{
+    <div class="card f1-table">
+        <div class="card-body">
+            <h2 class="card-title text-center f1-uppercase">@DateTime.Now.Year TEAMS' STANDINGS</h2>
+            <table class="table text-nowrap">
+                <thead>
+                    <tr class="f1-table-header">
+                        <th>POS.</th>
+                        <th>TEAM</th>
+                        <th>NAT.</th>
+                        <th class="d-none d-md-table-cell">WINS</th>
+                        <th class="text-end">PTS.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in Model)
+                    {
+                        var rowClass = m.Position == 1 ? "f1-leader" : "";
+                        <tr class="@rowClass">
+                            <td>@m.Position</td>
+                            <td>
+                                <a href="@m.ConstructorUrl" class="f1-link" target="_blank">@m.Name</a>
+                            </td>
+                            <td>@F1CodeMapper.GetF1Code(m.CountryCode)</td>
+                            <td class="d-none d-md-table-cell">@m.Wins</td>
+                            <td class="text-end">@m.Points</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center" role="alert">
+        Teams' standings is currently unavailable.
+    </div>
+}

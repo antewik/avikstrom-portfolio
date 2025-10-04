@@ -1,0 +1,36 @@
+﻿/* ==============================
+   Resume Page Layout
+   ============================== */
+.pdf-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+}
+
+    .pdf-container embed {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1.4142; /* A4 ratio */
+        object-fit: contain;
+        border: none;
+    }
+
+
+@media screen and (max-width: 600px) {
+    .pdf-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 0;
+        height: auto;
+    }
+
+        .pdf-container embed {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+}

@@ -1,0 +1,21 @@
+﻿@model List<AvikstromPortfolio.Models.FlightInfo.FlightInfo>
+
+<div class="flightboard-wrapper">
+    <table id="flightBoardResults" class="flightboard-table">
+        <thead>
+            <tr>
+                <th class="text-start">Flight</th>
+                <th class="text-start">Airline</th>
+                <th class="text-start">Destination</th>
+                <th class="text-center">Time</th>
+                <th class="text-center">Status</th>
+                <th class="text-center">Terminal</th>
+                <th class="text-center">Gate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @await Html.PartialAsync("_FlightBoardRows", Model)
+        </tbody>
+    </table>
+</div>
+

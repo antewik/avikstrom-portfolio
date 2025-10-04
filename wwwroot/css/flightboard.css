@@ -1,0 +1,181 @@
+﻿/* ==============================
+   Flightboard Page Layout
+   ============================== */
+
+/* Add spacing below the form */
+#flightBoardForm {
+    margin-bottom: 1.5rem;
+}
+
+#flightBoardFormContainer .btn-primary:focus,
+#flightBoardFormContainer .btn-primary:active,
+#flightBoardFormContainer .btn-primary:focus-visible {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    box-shadow: 0 0 0 0.1rem var(--color-dark);
+    color: var(--color-white);
+    outline: none;
+}
+
+.flightboard-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+/* Flightboard table styling */
+.flightboard-table {
+    font-family: 'Roboto Condensed', 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    background-color: #111;
+    color: #eee;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+}
+
+    .flightboard-table th {
+        background-color: #222;
+        color: var(--color-white);
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .flightboard-table td {
+        padding: 0.3rem 0.6rem;
+        border-bottom: 1px solid #333;
+    }
+
+
+/* Status cell styling */
+.status-cell {
+    text-align: center;
+    font-weight: bold;
+    padding: 0.3rem 0.6rem;
+    background-color: transparent;
+}
+
+    /* Text-only status colors */
+
+    /* Neutral statuses */
+    .status-cell.on-time,
+    .status-cell.arrived {
+        color: #eee; /* light gray/white */
+    }
+
+    .status-cell.departed {
+        color: #aaa; /* dim gray */
+    }
+
+    /* Boarding emphasized */
+    .status-cell.boarding {
+        color: #eee; /* keep neutral white */
+        font-weight: bold;
+        animation: blink 2s step-start infinite;
+    }
+
+    /* Delayed flights */
+    .status-cell.delayed {
+        color: #ffa500; /* amber/orange */
+        font-weight: bold;
+    }
+
+    /* Cancelled flights */
+    .status-cell.cancelled {
+        color: #d9534f; /* red */
+        font-weight: bold;
+    }
+
+    /* Diverted flights */
+    .status-cell.diverted {
+        color: #d9534f; /* red */
+        font-style: italic;
+    }
+
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+
+/* Dropdown Focus Styling */
+.form-select:focus,
+.form-select:invalid:focus {
+    border-color: var(--color-dark);
+    box-shadow: 0 0 0 0.25rem var(--color-primary);
+}
+
+.form-select option:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+
+/* Button Styling */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    /* Hover */
+    .btn-primary:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+    /* Disabled */
+    .btn-primary:disabled {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-white);
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+#data-refresh-info {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 0.3rem;
+}
+
+@media (max-width: 576px) and (orientation: portrait) {
+    /* Hide Airline and Terminal in portrait mode */
+    .flightboard-table th:nth-child(2), /* Airline */
+    .flightboard-table td:nth-child(2),
+    .flightboard-table th:nth-child(7), /* Terminal */
+    .flightboard-table td:nth-child(7) {
+        display: none;
+    }
+
+    .flightboard-table {
+        font-size: 0.85rem;
+    }
+
+        .flightboard-table td,
+        .flightboard-table th {
+            padding: 0.3rem 0.4rem;
+        }
+
+    #flightBoardFormContainer .row.g-2.align-items-center {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #flightBoardFormContainer .col-auto {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    #flightBoardFormContainer .btn {
+        width: 100%;
+    }
+}

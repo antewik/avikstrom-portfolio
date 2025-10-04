@@ -1,0 +1,28 @@
+﻿
+/* ==============================
+   Home Page Layout
+   ============================== */
+
+.home-form-wrapper {
+    max-width: 700px;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+}
+
+.github-link {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+    .github-link:hover {
+        color: var(--color-primary);
+        text-decoration: underline;
+    }
+
+hr {
+    color: var(--color-primary);
+    margin-top: 0.1rem;
+    margin-bottom: 0.5rem;
+    height: 1px;
+}

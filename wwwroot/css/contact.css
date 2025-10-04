@@ -1,0 +1,111 @@
+﻿/* ==============================
+   Contact Page Layout
+   ============================== */
+.contact-page {
+    padding: 1rem;
+}
+
+.contact-intro {
+    font-size: 1rem;
+    color: var(--color-dark);
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Form Wrapper */
+.contact-form-wrapper {
+    max-width: 600px;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+}
+
+    .contact-form-wrapper h4 {
+        margin-bottom: 1rem;
+    }
+
+    .contact-form-wrapper label {
+        font-weight: bold;
+        padding-bottom: 0.2rem;
+    }
+
+/* Form Grouping */
+.contact-form-group {
+    margin-bottom: 1rem;
+}
+
+/* Submit Button Alignment */
+.contact-form-submit {
+    text-align: right;
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+    font-size: 16px;
+}
+
+/* Responsive Padding */
+@media (max-width: 768px) {
+    .contact-form-wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form-wrapper {
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+        width: 100%;
+        font-size: 1.0rem;
+    }
+
+        .contact-form-wrapper input,
+        .contact-form-wrapper textarea {
+            font-size: 16px !important;
+        }
+}
+
+/* Input Focus Styling */
+.form-control:focus {
+    border-color: var(--color-dark);
+    box-shadow: 0 0 0 0.25rem var(--color-primary);
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-white);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    /* Hover */
+    .btn-primary:hover {
+        background-color: var(--color-primary);
+        color: var(--color-white);
+    }
+
+    /* Focus & Active */
+    .btn-primary:focus,
+    .contact-form-wrapper .btn-primary:focus,
+    .btn-primary:active,
+    .contact-form-wrapper .btn-primary:active {
+        background-color: var(--color-primary-dark);
+        border-color: var(--color-primary-dark);
+        box-shadow: 0 0 0 0.1rem var(--color-dark);
+        color: var(--color-white);
+    }
+
+
+    /* Disabled */
+    .btn-primary:disabled,
+    .contact-form-wrapper .btn-primary:disabled {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: var(--color-white);
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
