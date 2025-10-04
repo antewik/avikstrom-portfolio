@@ -1,0 +1,14 @@
+﻿@* Bio Index *@
+
+@{
+    ViewData["Title"] = "About me";
+}
+
+<div data-require-style="/css/bio.css"></div>
+<div class="bio-form-wrapper">
+    <h1>Bio</h1>
+
+    <section class="about-section">
+        <h5>@Html.Raw(ViewData["AboutMeText"] ?? "Content not available.")</h5>
+    </section>
+</div>

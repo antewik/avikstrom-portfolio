@@ -1,0 +1,72 @@
+﻿@* FlightBoard Index *@
+
+@{
+    ViewData["Title"] = "FlightBoard";
+}
+
+@section Scripts {
+    <script src="~/js/flightboard.js" asp-append-version="true"></script>
+}
+
+@model List<AvikstromPortfolio.Models.FlightInfo.FlightInfo>
+
+<div data-require-style="/css/flightboard.css"></div>
+<div class="card flightboard-wrapper border-0">
+    <div class="card-body">
+        <section class="portfolio-demo">
+            <h1>Real-Time Flight Board</h1>
+            <p class="d-none d-md-block">
+                This demo shows a live flight board powered by <strong>SignalR</strong>
+                and real-time data from <strong>FlightInfoApi</strong>.
+            </p>
+        </section>
+        <div id="flightBoardFormContainer">
+            <form id="flightBoardForm" method="get" asp-controller="FlightBoard" asp-action="Index">
+
+                <div id="data-refresh-info" class="text-muted">
+                    Data is refreshed every @ViewBag.ApiRefreshInterval
+                </div>
+
+                <div class="input-group">
+                    <div class="row g-2 align-items-center">
+                        <div class="col-auto">
+                            <select name="iataCode" class="form-select" required>
+                                <option value="" disabled selected>[Select Airport]</option>
+                                <option value="LAX">Los Angeles (LAX)</option>
+                                <option value="LLA">Luleå (LLA)</option>
+                                <option value="ARN">Stockholm (ARN)</option>
+                            </select>
+                        </div>
+
+                        <div class="col-auto">
+                            <select name="direction" class="form-select" required>
+                                <option value="" disabled selected>[Select Direction]</option>
+                                <option value="Departure">Departure</option>
+                                <option value="Arrival">Arrival</option>
+                            </select>
+                        </div>
+
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-md btn-primary">Search</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+
+        <div id="flightBoardContainer">
+            @if (ViewData["SearchPerformed"] as bool? == true)
+            {
+                <div>
+                    @Html.Partial("_FlightBoardResults", Model)
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- Always render SignalR URL into a global variable -->
+<script>
+    window.signalRUrl = '@ViewData["SignalRUrl"]';
+</script>

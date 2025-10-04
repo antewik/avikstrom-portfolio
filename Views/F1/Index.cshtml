@@ -1,0 +1,33 @@
+﻿@* F1 Index *@
+
+@{
+    ViewData["Title"] = "F1";
+}
+
+@section Scripts {
+    <script src="~/js/f1.js" asp-append-version="true"></script>
+}
+
+<div id="config" data-baseurl="@ViewData["F1InfoBaseUrl"]" class="d-none"></div>
+
+<div data-require-style="/css/f1.css"></div>
+<div class="container">
+    <section class="portfolio-demo">
+        <h1>F1 Schedule & Standings</h1>
+        <p class="d-none d-md-block">
+            This demo uses the <strong>f1_info_api</strong> (Python) to fetch race
+            schedules and standings from <strong>FastF1</strong>.
+        </p>
+    </section>
+
+
+    <ul class="nav nav-tabs f1-nav-tabs">
+        <li class="nav-item"><a class="nav-link f1-nav-link" href="#" onclick="loadF1Section('NextRace')"><span class="f1-nav-text">NEXT RACE</span></a></li>
+        <li class="nav-item"><a class="nav-link f1-nav-link" href="#" onclick="loadF1Section('TeamStandings')"><span class="f1-nav-text">TEAMS' STANDINGS</span></a></li>
+        <li class="nav-item"><a class="nav-link f1-nav-link" href="#" onclick="loadF1Section('DriverStandings')"><span class="f1-nav-text">DRIVERS' STANDINGS</span></a></li>
+    </ul>
+
+    <div id="f1-content">
+        <!-- Dynamic content loads here -->
+    </div>
+</div>

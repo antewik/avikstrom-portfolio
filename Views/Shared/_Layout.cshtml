@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ==============================
+         Favicons and Touch Icons
+         ============================== -->
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- ==============================
+         Stylesheets
+         ============================== -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Page-specific styles -->
+    @RenderSection("Styles", required: false)
+    <!-- ==============================
+         Meta Tags
+         ============================== -->
+    <meta name="theme-color" content="#FF8000" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="WikstromIT is a portfolio site showcasing Andreas Vikstrom’s work in .NET, C#, and more.">
+
+
+    <title>@ViewData["Title"] - Andreas Vikstrom - Portfolio</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <!-- ==============================
+         Page Wrapper
+         ============================== -->
+    <div class="container-fluid bg-light bg-image-light flex-grow-1">
+
+        <!-- ==============================
+             Navigation Bar
+             ============================== -->
+        <nav class="navbar navbar-expand-md bg-dark bg-image-dark fixed-top" aria-label="Main navigation">
+            <div class="container-fluid">
+                <div class="d-flex w-100">
+                    <!-- Toggler Button -->
+                    <button class="navbar-toggler component-navbar-toggler" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                            aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span>
+                            <span class="component-toggler-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                        </span>
+                    </button>
+
+                    <!-- Main Menu -->
+                    <div class="collapse navbar-collapse justify-content-start" id="mainNavbar">
+                        <ul id="mainMenu" class="navbar-nav">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link active" data-submenu="none" href="/Home/Index">Home</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#" data-submenu="AboutMeMenu">About Me</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#" data-submenu="PortfolioMenu">Portfolio</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- ==============================
+             Main Content Wrapper
+             ============================== -->
+        <div id="contentWrapper">
+            <div class="row flex-nowrap bg-light">
+                <div class="bg-image-light d-none d-md-block col-md-1 col-lg-2"></div>
+
+                <main id="main-content" class="bg-white flex-grow-1 col-sm-12 col-md-10 col-lg-8 d-flex flex-column">
+                    @RenderBody()
+                </main>
+
+                <div class="bg-image-light d-none d-md-block col-md-1 col-lg-2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================
+         Footer
+         ============================== -->
+    <footer class="border-top footer-custom text-muted mt-auto flex-shrink-0 w-100">
+        <div class="container-fluid">
+            &copy; 2025 - WikstromIT
+        </div>
+    </footer>
+
+    <!-- ==============================
+    Scripts
+    ============================== -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Page-specific scripts -->
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

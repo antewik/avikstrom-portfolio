@@ -1,0 +1,70 @@
+﻿@* Home Index *@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+}
+
+<div class="home-form-wrapper">
+    <section class="intro py-2">
+        <h1>Welcome to My Portfolio</h1>
+        <p>
+            This site showcases my work as a software engineer, with a focus on building
+            real-world applications using modern .NET technologies. On this site you’ll find some interactive demos, 
+            a couple of APIs I’ve built, and links to the source code on GitHub.
+        </p>
+    </section>
+    <hr />
+    <section class="webapp py-2">
+        <h2>AvikstromPortfolio (WebApp)</h2>
+        <p>
+            This site itself is built with <strong>.NET 8 MVC.</strong> 
+            It’s the main project in my portfolio and shows how I put 
+            together a full web application with clean structure, 
+            responsive design, and integration to external APIs. 
+            The Portfolio section includes demos that highlight real‑time 
+            features and external data integrations..
+        </p>
+
+        <p>
+            <a href="https://github.com/antewik/avikstrom-portfolio" class="github-link" target="_blank">
+                View the repository on GitHub
+            </a>
+        </p>
+    </section>
+    <hr />
+    <section class="webapi py-2">
+        <h2>FlightInfoApi</h2>
+        <p>
+            This project is built with <strong>.NET 9 Web API.</strong>
+            It connects to AeroDataBox to pull real‑time flight data and 
+            makes that information available to the web app. I use it to 
+            power the FlightBoard demo, showing how external APIs can be 
+            integrated and served through a clean, controller‑based API design.
+        </p>
+        <p><a href="https://github.com/antewik/FlightInfoApi" class="github-link" target="_blank">View the repository on GitHub</a></p>
+    </section>
+    <hr />
+    <section class="webapi py-2">
+        <h2>f1_info_api</h2>
+        <p>
+            This project is built with <strong>Python</strong> and uses FastF1 to 
+            fetch Formula 1 race data. It’s a simple API that lets the portfolio 
+            site display upcoming races and standings.
+        </p>
+        <p><a href="https://github.com/antewik/f1_info_api" class="github-link" target="_blank">View the repository on GitHub</a></p>
+    </section>
+    <hr />
+    <section class="deployment py-2">
+        <h2>Deployment</h2>
+        <p>
+            All of these projects run on <strong>Microsoft Azure</strong>.
+            I’ve set up hosting, managed resources, and configured CI/CD pipelines
+            so the apps go from code to a live environment in the cloud.
+        </p>
+    </section>
+    <hr />
+</div>
