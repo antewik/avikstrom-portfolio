@@ -1,0 +1,65 @@
+﻿@using WikstromIT.Models.F1
+@using WikstromIT.Helpers
+@model DriverStandingsWrapper
+
+@if (Model != null)
+{
+    var standings = Model.DriverStandings;
+    var seasonLabel = string.IsNullOrEmpty(Model.Season) ? "DRIVERS' STANDINGS" : 
+    $"{Model.Season} Drivers' Standings";
+
+    @if (standings != null && standings.Any())
+    {
+        <div>
+            <div class="card f1-table">
+                <div class="card-body">
+                    <h2 class="card-title text-center f1-uppercase">@seasonLabel</h2>
+                    <div class="row text-nowrap f1-table-header">
+                        <div class="col-1 col-md-1 col-lg-1">POS.</div>
+                        <div class="d-none d-md-block col-md-1 col-lg-1">#</div>
+                        <div class="col-6 col-md-4 col-lg-4">DRIVER</div>
+                        <div class="d-none d-md-block col-md-2 col-lg-1">NAT.</div>
+                        <div class="col-4 col-md-3 col-lg-3">TEAM</div>
+                        <div class="d-none d-lg-block col-lg-1">WINS</div>
+                        <div class="col-1 col-md-1 col-lg-1 d-flex justify-content-end">PTS.</div>
+                    </div>
+                    @foreach (var m in standings)
+                    {
+                        var country = NationalityMapper.GetCountryInfo(m.Nationality);
+                        var displayCode = country != null
+                        ? F1CountryCodeMapper.GetCountryCode(country.IsoAlpha3) : "-";
+
+                        var isLeader = m.Position.HasValue && m.Position.Value == 1;
+                        var rowClass = isLeader ? "f1-leader" : "";
+
+                        <div class="row text-nowrap @rowClass">
+                            <div class="col-1 col-md-1 col-lg-1">@m.Position</div>
+                            <div class="d-none d-md-block col-md-1 col-lg-1">@m.DriverNumber</div>
+                            <div class="col-6 col-md-4 col-lg-4">
+                                <a href="@m.DriverUrl" class="f1-link" target="_blank" rel="noopener noreferrer">
+                                    @m.FirstName @m.LastName
+                                </a>
+                            </div>
+                            <div class="d-none d-md-block col-md-2 col-lg-1">@displayCode</div>
+                            <div class="col-4 col-md-3 col-lg-3">@m.Constructor</div>
+                            <div class="d-none d-lg-block col-lg-1 col-lg-1">@m.Wins</div>
+                            <div class="col-1 col-md-1 col-lg-1 d-flex justify-content-end">@m.Points</div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center" role="alert">
+            Drivers' standings is currently unavailable.
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-warning text-center" role="alert">
+        Drivers' standings is currently unavailable.
+    </div>
+}

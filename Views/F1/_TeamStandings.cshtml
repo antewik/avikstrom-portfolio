@@ -1,0 +1,46 @@
+﻿@using WikstromIT.Models.F1
+@using WikstromIT.Helpers
+@model List<TeamStandings>
+
+<div>
+    @if (Model != null && Model.Any())
+    {
+        <div class="card f1-table">
+            <div class="card-body">
+                <h2 class="card-title text-center f1-uppercase">2025 TEAMS' STANDINGS</h2>
+                <div class="row text-nowrap f1-table-header">
+                    <div class="col-2 col-md-2">POS.</div>
+                    <div class="col-4 col-md-3">TEAM</div>
+                    <div class="col-4 col-md-4">NAT.</div>
+                    <div class="d-none d-md-block col-md-2">WINS</div>
+                    <div class="col-2 col-md-1 d-flex justify-content-end">PTS.</div>
+                </div>
+                @foreach (var m in Model)
+                {
+                    var country = NationalityMapper.GetCountryInfo(m.Nationality);
+                    var displayCode = country != null
+                    ? F1CountryCodeMapper.GetCountryCode(country.IsoAlpha3) : "-";
+
+                    var isLeader = m.Position.HasValue && m.Position.Value == 1;
+                    var rowClass = isLeader ? "f1-leader" : "";
+
+                    <div class="row text-nowrap @rowClass">
+                        <div class="col-2 col-md-2"> @m.Position</div>
+                        <div class="col-4 col-md-3">
+                            <a href="@m.ConstructorUrl" class="f1-link" target="_blank" rel="noopener noreferrer"> @m.Name</a>
+                        </div>
+                        <div class="col-4 col-md-4">@displayCode</div>
+                        <div class="d-none d-md-block col-md-2"> @m.Wins</div>
+                        <div class="col-2 col-md-1 d-flex justify-content-end"> @m.Points</div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center" role="alert">
+            Teams' standings is currently unavailable.
+        </div>
+    }
+</div>

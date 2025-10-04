@@ -1,10 +1,8 @@
-﻿
+﻿<div class="p-3">
 <form method="post" asp-controller="AI" asp-action="SubmitText">
-    <div class="text-center">
-        <h1 class="display-4">AI Chat</h1>
-        <input type="text" name="UserInput" class="form-control form-control-lg" placeholder="Enter text here" />
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+    <h1>AI Chat</h1>
+    <input type="text" name="UserInput" class="form-control form-control-lg" placeholder="Enter text here" />
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
 @if (ViewData["AIResponse"] != null)
@@ -14,3 +12,4 @@
         <textarea class="form-control" rows="4">@ViewData["AIResponse"]</textarea>
     </div>
 }
+</div>

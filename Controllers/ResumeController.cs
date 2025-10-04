@@ -8,11 +8,5 @@ namespace WikstromIT.Controllers
         {
             return PartialView();
         }
-
-        public IActionResult ViewResume()
-        {
-            var resumeUrl = Url.Content("~/pdfs/Resume.pdf");
-            return Redirect(resumeUrl);
-        }
     }
 }

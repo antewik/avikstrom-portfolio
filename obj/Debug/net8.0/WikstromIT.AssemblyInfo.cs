@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WikstromIT")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8736bbe17032704f80aaf011af6ec5a2fbf978f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("WikstromIT")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WikstromIT")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

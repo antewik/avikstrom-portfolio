@@ -1,0 +1,15 @@
+<p>
+    I was born and raised in Sweden, and in 2012 I moved to Los Angeles to be with my wife, who I met here in the United States. Outside of work, I'm passionate about sports. I grew up playing ice hockey and still play on a couple of hobby teams around LA. I've also been a fan of Formula 1 since childhood and follow it closely every race weekend. When I'm not working or watching races, I enjoy hiking some of the beautiful trails around Los Angeles, such as Griffith Park and Topanga Canyon. It's a nice way to enjoy the outdoors in this lovely city.
+</p>
+
+<p>
+    Most of my professional experience is with the .NET platform and Microsoft SQL Server. I enjoy improving existing solutions, whether that means fixing bugs, optimizing performance, or enhancing the user experience. I also have experience with SSIS and SSRS and feel comfortable writing complex SQL queries when needed. I've spent many years working with public sector clients in Sweden, where I've learned to take deadlines seriously and be a reliable team member. I enjoy collaborating with others and believe good engineering goes beyond code to focus on the people who use the system.
+</p>
+
+<p>
+    Andreas Vikstrom,<br />
+    Wikstrom IT
+</p>
+<p>
+    <a href='mailto:avikstrom@wikstromIT.com'>avikstrom@wikstromIT.com</a>
+<p>

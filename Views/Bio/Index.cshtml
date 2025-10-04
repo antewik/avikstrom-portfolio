@@ -1,0 +1,12 @@
+﻿@* Bio Index *@
+@{
+    ViewData["Title"] = "About me";
+}
+
+<div class="bio-form-wrapper">
+    <h1>Bio</h1>
+
+    <section class="about-section">
+        <p><h5>@Html.Raw(ViewData["AboutMeText"] ?? "Content not available.")</h5></p>
+    </section>
+</div>

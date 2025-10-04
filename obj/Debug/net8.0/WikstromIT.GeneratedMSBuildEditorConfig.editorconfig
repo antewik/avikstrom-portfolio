@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = WikstromIT
 build_property.RootNamespace = WikstromIT
@@ -17,17 +25,35 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\anwi1\source\repos\WikstromIT
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
 [C:/Users/anwi1/source/repos/WikstromIT/Views/AI/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQUlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/anwi1/source/repos/WikstromIT/Views/Email/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1haWxcSW5kZXguY3NodG1s
+[C:/Users/anwi1/source/repos/WikstromIT/Views/Bio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmlvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/anwi1/source/repos/WikstromIT/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/anwi1/source/repos/WikstromIT/Views/F1/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRjFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/anwi1/source/repos/WikstromIT/Views/F1/_DriverStandings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRjFcX0RyaXZlclN0YW5kaW5ncy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/anwi1/source/repos/WikstromIT/Views/F1/_NextRace.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRjFcX05leHRSYWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/anwi1/source/repos/WikstromIT/Views/F1/_TeamStandings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRjFcX1RlYW1TdGFuZGluZ3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/anwi1/source/repos/WikstromIT/Views/Home/Index.cshtml]
@@ -44,14 +70,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/anwi1/source/repos/WikstromIT/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/anwi1/source/repos/WikstromIT/Views/Shared/_AboutMeMenu.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BYm91dE1lTWVudS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/anwi1/source/repos/WikstromIT/Views/Shared/_PortfolioMenu.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qb3J0Zm9saW9NZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/anwi1/source/repos/WikstromIT/Views/Shared/_ValidationScriptsPartial.cshtml]

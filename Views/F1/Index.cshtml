@@ -1,28 +1,18 @@
-﻿<div class="text-center">
-    <h1 class="display-4">F1 Info</h1>
+﻿@* F1 Index *@
+
+<div id="config" data-baseurl="@ViewData["FastF1BaseUrl"]" class="d-none"></div>
+
+
+<div class="container">
+    <h1>Formula 1 - API Demo (FastF1)</h1>
+
+    <ul class="nav nav-tabs f1-nav-tabs">
+        <li class="nav-item"><a class="nav-link f1-nav-link" href="#" onclick="loadF1Section('NextRace')">NEXT RACE</a></li>
+        <li class="nav-item"><a class="nav-link f1-nav-link" href="#" onclick="loadF1Section('TeamStandings')">TEAMS' STANDINGS</a></li>
+        <li class="nav-item"><a class="nav-link f1-nav-link" href="#" onclick="loadF1Section('DriverStandings')">DRIVERS' STANDINGS</a></li>
+    </ul>
+
+    <div id="f1-content">
+        <!-- Dynamic content loads here -->
+    </div>
 </div>
-
-@*  Races *@
-<ul id="raceList"></ul>
-
-@* Race details*@
-<div id="raceInfo" class="race-details"></div>
-
-<button type="button" id="myButton">Click Me</button>
-
-@* Race result table (initially hidden) *@
-<div id="positionsContainer" style="display: none;">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Position</th>
-                <th>Driver</th>
-                <th>Session</th>
-            </tr>
-        </thead>
-        <tbody id="positionsTableBody"></tbody>
-    </table>
-</div>
-
-
-@* <button onclick="fetchDriverData()">Get Positions</button> *@

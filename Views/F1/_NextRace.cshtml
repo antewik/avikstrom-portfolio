@@ -1,0 +1,94 @@
+﻿@using WikstromIT.Models.F1
+@model RaceInfo
+
+@if (Model != null)
+{
+    var trackLocationOffset = TimeSpan.FromHours(4);
+    var raceDateTimeUtc = Model.RaceDayUtc?.ToDateTime(Model.RaceTimeUtc ?? new TimeOnly(0, 0));
+    var raceDateTimeTrackLocation = raceDateTimeUtc?.Add(trackLocationOffset);
+    var raceDateTrackLocation = raceDateTimeTrackLocation?.ToString("yyyy-MM-dd");
+    var raceTimeTrackLocation = raceDateTimeTrackLocation?.ToString("HH:mm:ss");
+
+    <div class="card border-0">
+        <div class="card-body">
+            <h2 class="card-title text-center f1-uppercase">@Model.NextRaceName</h2>
+            <p class="card-text text-center">
+                <span class="f1-info f1-info-label">Round:</span>
+                <span class="f1-info">@Model.Round</span>
+            </p>
+
+            <div class="f1-countdown"
+                 data-utc="@($"{Model.RaceDayUtc:yyyy-MM-dd}T{Model.RaceTimeUtc:HH\\:mm\\:ss}Z")"
+                 data-track="@($"{raceDateTrackLocation}T{raceTimeTrackLocation}")">
+                <h3 class="f1-uppercase">Lights Out In...</h3>
+                <div class="row f1-countdownDays">
+                    <div class="col-12">
+                        <span class="f1-count-num-days" id="days"></span><span class="f1-count-label">Days</span>
+                    </div>
+                </div>
+                <div class="row f1-countdownTime">
+                    <div class="col-12">
+                        <span class="f1-count-num" id="hours"></span><span class="f1-count-label">Hour</span>
+                        <span class="f1-count-num" id="minutes"></span><span class="f1-count-label">Min.</span>
+                        <span class="f1-count-num" id="seconds"></span><span class="f1-count-label">Sec.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-3">
+                <table class="table mx-auto f1-fixed-table">
+                    <tbody>
+                        <tr>
+                            <td colspan="3">
+                                <div id="toggleWrapper" class="f1-toggle-wrapper">
+                                    <input type="checkbox" id="toggleTimeMode" hidden />
+                                    <div class="toggle-side left">Track Time</div>
+                                    <div class="toggle-side right">My Time</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="f1-info f1-info-table f1-info-label">Location:</td>
+                            <td class="f1-info f1-info-table">@Model.Location, @Model.Country</td>
+                            <td></td>
+                        </tr>
+
+                        @foreach (var session in Model.Sessions)
+                        {
+                            var utcDateTime = session.UtcDateTime;
+                            var trackDateTime = utcDateTime?.AddHours(4);
+
+                            var utcIso = utcDateTime?.ToString("yyyy-MM-ddTHH:mm:ssZ"); // full UTC ISO
+                            var trackIso = trackDateTime?.ToString("yyyy-MM-ddTHH:mm:ss"); // full local ISO (no Z)
+
+                            <tr>
+                                <td class="f1-info f1-info-table f1-info-label">@session.Label:</td>
+                                <td class="f1-info f1-info-table">
+                                    <span class="f1-session-day"
+                                          data-utc="@utcIso"
+                                          data-track="@trackIso">
+                                        <!-- JS will format -->
+                                    </span>
+                                </td>
+                                <td class="f1-info f1-info-table">
+                                    <span class="f1-session-time"
+                                          data-utc="@utcIso"
+                                          data-track="@trackIso">
+                                        <!-- JS will format -->
+                                    </span>
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning text-center" role="alert">
+        Race info is currently unavailable.
+    </div>
+}
