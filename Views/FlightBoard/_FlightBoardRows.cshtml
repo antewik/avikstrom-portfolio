@@ -1,0 +1,94 @@
+﻿@model List<AvikstromPortfolio.Models.FlightInfo.FlightInfo>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var flight in Model)
+    {
+        <tr>
+            <td class="text-start">@flight.FlightNumber</td>
+            <td class="text-start">@flight.Airline</td>
+            <td class="text-start">@flight.Airport</td>
+            <td class="text-center">
+                @{
+                    var scheduled = flight.TimeScheduled?.Local;
+                    var revised = flight.TimeRevised?.Local;
+                    var status = flight.Status?.ToLowerInvariant();
+                }
+
+                @if (status == "canceled")
+                {
+                    <span class="text-danger">—</span>
+                }
+                else if (status == "delayed" && revised != null)
+                {
+                    <span class="text-warning fw-bold">@revised.Value.ToString("HH:mm")</span>
+                    @if (scheduled != null)
+                    {
+                        <span class="text-muted ms-1"><s>@scheduled.Value.ToString("HH:mm")</s></span>
+                    }
+                }
+                else if (status == "departed")
+                {
+                    <span class="text-muted">@scheduled?.ToString("HH:mm")</span>
+                }
+                else if (status == "expected" && scheduled != null)
+                {
+                    @scheduled.Value.ToString("HH:mm")
+                }
+                else if (revised != null)
+                {
+                    @revised.Value.ToString("HH:mm")
+                }
+                else if (scheduled != null)
+                {
+                    @scheduled.Value.ToString("HH:mm")
+                }
+                else if (status == "canceleduncertain")
+                {
+                    <span class="text-muted">—</span>
+                }
+                else
+                {
+                    <span class="text-muted">—</span>
+                }
+            </td>
+
+            @{
+                var rawStatus = flight.Status ?? string.Empty;
+                status = rawStatus.ToLowerInvariant();
+
+                if (rawStatus.ToLower() == "canceleduncertain")
+                    rawStatus = "Canceled";
+
+                string statusClass = status switch
+                {
+                    var s when s.Contains("boarding") => "boarding",
+                    var s when s.Contains("departed") => "departed",
+                    var s when s.Contains("arrived") => "arrived",
+                    var s when s.Contains("diverted") => "diverted",
+                    var s when s.Contains("canceled") => "canceled",
+                    var s when s.Contains("canceleduncertain") => "canceled",
+                    var s when s.Contains("delayed") => "delayed",
+                    _ => ""
+                };
+            }
+
+            @if (status != "unknown" && status != "expected" && !string.IsNullOrWhiteSpace(rawStatus))
+            {
+                <td class="text-center status-cell @statusClass">@rawStatus</td>
+            }
+            else
+            {
+                <td class="text-center status-cell"></td>
+            }
+            <td class="text-center">@flight.Terminal</td>
+            <td class="text-center">@flight.Gate</td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td colspan="7" class="text-center">No flight data available.</td>
+    </tr>
+}
